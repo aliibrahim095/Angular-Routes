@@ -15,24 +15,24 @@ export class EmployeesComponent implements OnInit {
   lname: string;
   age: number;
 
-  data = [];
+  employees = [];
 
-  get Fname() {
+  get isValidFname() {
     return this.Validation.controls.fname.valid;
   }
 
-  get Lname() {
+  get isValidLname() {
     return this.Validation.controls.lname.valid;
   }
 
-  get Age() {
+  get isValidAge() {
     return this.Validation.controls.age.valid;
   }
 
   Validation = new FormGroup({
-    fname: new FormControl("", Validators.required),
-    lname: new FormControl("", Validators.required),
-    age: new FormControl(0, [
+    fname: new FormControl(undefined, [Validators.required,Validators.minLength(3),Validators.maxLength(25)]),
+    lname: new FormControl(undefined, [Validators.required,Validators.minLength(3)]),
+    age: new FormControl(undefined, [
       Validators.required,
       Validators.min(18),
       Validators.max(60),
@@ -42,11 +42,9 @@ export class EmployeesComponent implements OnInit {
   sub() {
     console.log(this.Validation);
     if (
-      this.Validation.controls.fname.valid &&
-      this.Validation.controls.lname.valid &&
-      this.Validation.controls.age.valid
+      this.Validation.valid
     ) {
-      this.data.push({
+      this.employees.push({
         id:++this.id,
         fname: this.fname,
         lname: this.lname,
@@ -58,15 +56,15 @@ export class EmployeesComponent implements OnInit {
     }
   }
 
-  register(fname, lname, age) {
-    this.fname = fname;
-    this.lname = lname;
-    this.age = age;
-    this.data.push({
-      fname: this.fname,
-      lname: this.lname,
-      age: this.age,
-    });
+  // register(fname, lname, age) {
+  //   this.fname = fname;
+  //   this.lname = lname;
+  //   this.age = age;
+  //   this.employees.push({
+  //     fname: this.fname,
+  //     lname: this.lname,
+  //     age: this.age,
+  //   });
+  // }
 
-  }
 }

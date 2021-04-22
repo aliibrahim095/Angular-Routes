@@ -23,10 +23,10 @@
             [(ngModel)]="fname"
             name="fname"
           />
-          <div *ngIf="!Fname" class="text-danger">FirstName is Required</div>
+          <div *ngIf="!isValidFname" class="text-danger">FirstName is Required</div>
         </div>
         <div class="form-group">
-          <label for="lname">First Last</label>
+          <label for="lname">Last Name</label>
           <input
             formControlName="lname"
             type="text"
@@ -36,7 +36,7 @@
             [(ngModel)]="lname"
             name="lname"
           />
-          <div *ngIf="!Lname" class="text-danger">LastName is Required</div>
+          <div *ngIf="!isValidLname" class="text-danger">LastName is Required</div>
         </div>
         <div class="form-group">
           <label for="fname">Age</label>
@@ -49,7 +49,7 @@
             [(ngModel)]="age"
             name="age"
           />
-          <div *ngIf="!Age" class="text-danger">
+          <div *ngIf="!isValidAge" class="text-danger">
             Age is Required and betwwen 18 and 60
           </div>
         </div>
@@ -74,11 +74,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of data">
-            <td>{{ item.id }}</td>
-            <td>{{ item.fname }}</td>
-            <td>{{ item.lname }}</td>
-            <td>{{ item.age }}</td>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.fname }}</td>
+            <td>{{ employee.lname }}</td>
+            <td>{{ employee.age }}</td>
           </tr>
         </tbody>
       </table>

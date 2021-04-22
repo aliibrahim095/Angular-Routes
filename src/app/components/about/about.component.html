@@ -25,7 +25,7 @@
           <div *ngIf="!Fname" class="text-danger">FirstName is Required</div>
         </div>
         <div class="form-group">
-          <label for="lname">First Last</label>
+          <label for="lname">Last Name</label>
           <input
             type="text"
             class="form-control"
@@ -71,11 +71,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of data">
-            <td>{{ item.id }}</td>
-            <td>{{ item.fname }}</td>
-            <td>{{ item.lname }}</td>
-            <td>{{ item.age }}</td>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.fname }}</td>
+            <td>{{ employee.lname }}</td>
+            <td>{{ employee.age }}</td>
           </tr>
         </tbody>
       </table>

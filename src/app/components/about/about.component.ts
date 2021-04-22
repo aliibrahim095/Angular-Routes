@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
   lname: string;
   age: number;
 
-  data = [];
+  employees = [];
 
   get Fname() {
     return this.fname;
@@ -36,7 +36,7 @@ export class AboutComponent implements OnInit {
       this.age >= 18 &&
       this.Age <= 60
     ) {
-      this.data.push({
+      this.employees.push({
         id:++this.id,
         fname: this.fname,
         lname: this.lname,
