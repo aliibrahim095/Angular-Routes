@@ -1,0 +1,85 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="offset-2 col-8 mt-4">
+      <div class="alert alert-primary bg-dark p-5 text-center">
+        <p class="alert alert-primary p-2">Register New Student</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4 mt-4 offset-1">
+      <form [formGroup]="Validation" class="text-light" (ngSubmit)="sub()">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input
+            formControlName="fname"
+            type="text"
+            class="form-control"
+            id="fname"
+            placeholder="Enter your First Name "
+            [(ngModel)]="fname"
+            name="fname"
+          />
+          <div *ngIf="!Fname" class="text-danger">FirstName is Required</div>
+        </div>
+        <div class="form-group">
+          <label for="lname">First Last</label>
+          <input
+            formControlName="lname"
+            type="text"
+            class="form-control"
+            id="lname"
+            placeholder="Enter your Last Name "
+            [(ngModel)]="lname"
+            name="lname"
+          />
+          <div *ngIf="!Lname" class="text-danger">LastName is Required</div>
+        </div>
+        <div class="form-group">
+          <label for="fname">Age</label>
+          <input
+            formControlName="age"
+            type="number"
+            class="form-control"
+            id="age"
+            placeholder="Enter your Age "
+            [(ngModel)]="age"
+            name="age"
+          />
+          <div *ngIf="!Age" class="text-danger">
+            Age is Required and betwwen 20 and 50
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            class="form-control btn btn-primary"
+            value="Register"
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="col-5 mt-5 offset-1 mb-5">
+      <table class="table table-light">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.fname }}</td>
+            <td>{{ item.lname }}</td>
+            <td>{{ item.age }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
