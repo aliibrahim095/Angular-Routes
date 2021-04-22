@@ -50,7 +50,7 @@
             name="age"
           />
           <div *ngIf="!Age" class="text-danger">
-            Age is Required and betwwen 20 and 50
+            Age is Required and betwwen 18 and 60
           </div>
         </div>
         <div class="form-group">
@@ -64,9 +64,10 @@
     </div>
 
     <div class="col-5 mt-5 offset-1 mb-5">
-      <table class="table table-light">
+      <table class="table table-info table-bordered text-center mt-1">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">#</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Age</th>
@@ -74,6 +75,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of data">
+            <td>{{ item.id }}</td>
             <td>{{ item.fname }}</td>
             <td>{{ item.lname }}</td>
             <td>{{ item.age }}</td>

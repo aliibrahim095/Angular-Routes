@@ -10,10 +10,11 @@ export class EmployeesComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
+  id:number=0;
   fname: string;
   lname: string;
   age: number;
+
   data = [];
 
   get Fname() {
@@ -33,8 +34,8 @@ export class EmployeesComponent implements OnInit {
     lname: new FormControl("", Validators.required),
     age: new FormControl(0, [
       Validators.required,
-      Validators.min(20),
-      Validators.max(50),
+      Validators.min(18),
+      Validators.max(60),
     ]),
   });
 
@@ -46,10 +47,14 @@ export class EmployeesComponent implements OnInit {
       this.Validation.controls.age.valid
     ) {
       this.data.push({
+        id:++this.id,
         fname: this.fname,
         lname: this.lname,
         age: this.age,
       });
+      this.fname="";
+      this.lname="";
+      this.age=undefined;
     }
   }
 
@@ -62,5 +67,6 @@ export class EmployeesComponent implements OnInit {
       lname: this.lname,
       age: this.age,
     });
+
   }
 }
